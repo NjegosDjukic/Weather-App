@@ -8,7 +8,7 @@ function App() {
 
   const { data } = useQuery('weatherData', getCurrentDayWeather);
   const { data : forecastData } = useQuery('forecastData', getForecast);
-  
+
   return (
      <div className='container'>
         {data && <CurrentDay data={data.data}/>}
