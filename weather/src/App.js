@@ -1,25 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import { getCurrentDayWeather, getForecast } from './services/getWeather';
+import { useQuery } from 'react-query'
+import CurrentDay from './components/CurrentDay';
+import Forecast from './components/Forecast';
 
 function App() {
+
+  const { data } = useQuery('weatherData', getCurrentDayWeather);
+  const { data : forecastData } = useQuery('forecastData', getForecast);
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+     <div className='container'>
+        {data && <CurrentDay data={data.data}/>}
+        {forecastData && <Forecast data={forecastData.data} />}
+     </div>
   );
 }
-
 export default App;
