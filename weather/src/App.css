@@ -51,7 +51,7 @@
 }
 .day-icon{
   width: 100px;
-  height: 60px;
+  height: 70px;
 }
 .day{
   display: flex;
@@ -63,4 +63,5 @@
   margin: 0 20px;
   background-color: rgba(255, 255, 255, 0.3);
   flex-grow: 1;
+  cursor: pointer;
 }

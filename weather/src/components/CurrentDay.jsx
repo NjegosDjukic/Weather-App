@@ -5,7 +5,7 @@ const CurrentDay = (data) => {
     return (
       <div className='header'>
         <div className='block1'>
-          <img src ={`http://openweathermap.org/img/w/${data.data.weather[0].icon}.png`} className='icon' />
+          <img src={`http://openweathermap.org/img/w/${data.data.weather[0].icon}.png`} alt='' className='icon' />
          </div>
         <div className='block2'>
           <span style={{fontSize : '24px'}}>Today</span>
