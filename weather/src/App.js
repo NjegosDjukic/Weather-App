@@ -9,13 +9,13 @@ const App = () => {
   const { data } = useQuery('weatherData', getCurrentDayWeather);
   const { data : forecastData } = useQuery('forecastData', getForecast);
 
-  console.log(forecastData);
-
   return (
+   <div>
      <div className='container'>
         {data && <CurrentDay data={data.data}/>}
-        {forecastData && <Forecast data={forecastData.data} />}
      </div>
+        {forecastData && <Forecast data={forecastData.data} />}
+   </div>
   );
 }
 export default App;
