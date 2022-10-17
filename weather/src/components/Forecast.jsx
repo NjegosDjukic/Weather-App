@@ -1,27 +1,25 @@
 import { format } from 'date-fns';
-import Day from './Day';
+import SingleDay from './SingleDay';
 
 const Forecast = ({data}) => {
 
-  const date = new Date();
-  const currentDay = format(new Date(date),'EEEE');
-    
+  const currentDay = format(new Date(),'EEEE');
   const forecast = data.list.filter(item => item.day !== currentDay);
-  const day1= forecast.slice(0,8)
-  const day2= forecast.slice(8,16);
-  const day3= forecast.slice(16,24);
-  const day4= forecast.slice(24,32);
 
   forecast.forEach((item) => {
     item.day = format(new Date(item.dt * 1000),'EEEE')
   })
+  const weekForecast = [];
+  for (var i=0; i<forecast.length; i+=8) {
+     weekForecast.push(forecast.slice(i,i+ 8));
+}
+const daysInWeek = weekForecast.slice(0,4);
 
-    return (
+  return (
       <div className='days'>
-        <Day dayProps={day1} />
-        <Day dayProps={day2} />
-        <Day dayProps={day3} />
-        <Day dayProps={day4} />
+        {daysInWeek.map((day,index) => (
+          <SingleDay dayProps={day} key={index}  />
+        ))}
       </div>
   )
 }

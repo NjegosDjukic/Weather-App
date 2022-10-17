@@ -14,6 +14,6 @@ const CurrentDay = (data) => {
           <p style={{fontSize: '24px'}}>{data.data.weather[0].main}</p>
         </div>
       </div>
-  )
+    )
 }
 export default CurrentDay;
