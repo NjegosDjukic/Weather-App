@@ -11,7 +11,7 @@ const CurrentDay = (data) => {
           <span style={{fontSize : '24px'}}>Today</span>
           <h1>{data.data.name}</h1>
           <p style={{fontSize: '24px'}}>Temperature: {data.data.main.temp.toFixed(1)}°C </p>
-          <p style={{fontSize: '24px'}}>{data.data.weather[0].main}</p>
+          <p style={{fontSize: '24px'}}>{data.data.weather[0].description}</p>
         </div>
       </div>
     )
