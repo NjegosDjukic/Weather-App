@@ -1,5 +1,5 @@
 import { Box,Modal } from '@mui/material/';
-import { AreaChart,Tooltip,Area, XAxis, YAxis, Label } from 'recharts';
+import { AreaChart,Tooltip,Area, XAxis, YAxis } from 'recharts';
 import { format } from 'date-fns';
 
 const style = {
