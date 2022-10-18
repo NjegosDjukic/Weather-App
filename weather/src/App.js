@@ -5,7 +5,6 @@ import CurrentDay from './components/CurrentDay';
 import Forecast from './components/Forecast';
 
 const App = () => {
-
   
   const { data } = useQuery('currentDayForecast', getCurrentDayWeather);
   const { data : weekForecastData } = useQuery('weekForecast', getWeekForecast);
