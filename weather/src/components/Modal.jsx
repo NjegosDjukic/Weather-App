@@ -1,5 +1,5 @@
 import { Box,Modal } from '@mui/material/';
-import { AreaChart,Tooltip,Area, XAxis, YAxis } from 'recharts';
+import { AreaChart,Tooltip,Area, XAxis, YAxis, Label } from 'recharts';
 import { format } from 'date-fns';
 
 const style = {
@@ -63,7 +63,7 @@ const BasicModal = ({dayProps,open,setOpen}) => {
               </linearGradient>
               </defs>
               <XAxis dataKey="name"  />
-              <YAxis tickCount={7} />
+              <YAxis tickCount={7} tickFormatter={(number) => `${number}°`} />
               <Tooltip content={<CustomTooltip />} />
               <Area type="monotone" dataKey="temperature" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
             </AreaChart>
