@@ -1,20 +1,20 @@
 import './App.css';
-import { getCurrentDayWeather, getForecast } from './services/getWeather';
-import { useQuery } from 'react-query'
+import { getCurrentDayWeather, getWeekForecast } from './services/getWeather';
+import { useQuery } from 'react-query';
 import CurrentDay from './components/CurrentDay';
 import Forecast from './components/Forecast';
 
 const App = () => {
 
-  const { data } = useQuery('weatherData', getCurrentDayWeather);
-  const { data : forecastData } = useQuery('forecastData', getForecast);
+  const { data } = useQuery('currentDayForecast', getCurrentDayWeather);
+  const { data : weekForecastData } = useQuery('weekForecast', getWeekForecast);
 
   return (
    <div>
      <div className='container'>
         {data && <CurrentDay data={data.data}/>}
      </div>
-        {forecastData && <Forecast data={forecastData.data} />}
+        {weekForecastData && <Forecast data={weekForecastData.data} />}
    </div>
   );
 }

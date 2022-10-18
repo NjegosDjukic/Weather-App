@@ -10,14 +10,13 @@ const Forecast = ({data}) => {
     item.day = format(new Date(item.dt * 1000),'EEEE')
   })
   const weekForecast = [];
-  for (var i=0; i<forecast.length; i+=8) {
+  for (var i=0; i<32; i+=8) {
      weekForecast.push(forecast.slice(i,i+ 8));
-}
-const daysInWeek = weekForecast.slice(0,4);
-
+  }
+  
   return (
       <div className='days'>
-        {daysInWeek.map((day,index) => (
+        {weekForecast.map((day,index) => (
           <SingleDay dayProps={day} key={index}  />
         ))}
       </div>
