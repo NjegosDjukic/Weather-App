@@ -1,11 +1,15 @@
-import React from 'react';
+import { useState,useEffect  } from 'react';
+import { getIcon } from '../getIcon';
 
 const CurrentDay = (data) => {
-
+  
+  const [icon,setIcon] = useState('')
+  useEffect(() =>setIcon(getIcon(data.data.weather[0].icon)),[])
+        
     return (
       <div className='header'>
         <div className='block1'>
-          <img src={`http://openweathermap.org/img/w/${data.data.weather[0].icon}.png`} alt='' className='icon' />
+          <img src={icon} alt='' className='icon' />
          </div>
         <div className='block2'>
           <span style={{fontSize : '24px'}}>Today</span>
