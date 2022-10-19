@@ -20,5 +20,7 @@ export const getIcon = (icon) => {
             return 'https://raw.githubusercontent.com/Makin-Things/weather-icons/357678d840e7eb5410a40d2dd68eb20ae972dfee/original/static/snowy-6.svg'  
         case('50d' || '50n'):
             return 'https://raw.githubusercontent.com/Makin-Things/weather-icons/357678d840e7eb5410a40d2dd68eb20ae972dfee/original/static/fog.svg'
-    }
+        default:
+            return null
+        }
 }
