@@ -1,21 +1,15 @@
 import './App.css';
-import { getCurrentDayWeather, getWeekForecast } from './services/getWeather';
-import { useQuery } from 'react-query';
-import CurrentDay from './components/CurrentDay';
-import Forecast from './components/Forecast';
+import Signup from './components/Signup';
+import { Routes, Route } from 'react-router-dom';
+import Weather from './components/Weather';
 
 const App = () => {
-  
-  const { data } = useQuery('currentDayForecast', getCurrentDayWeather);
-  const { data : weekForecastData } = useQuery('weekForecast', getWeekForecast);
-  console.log(weekForecastData);
+
   return (
-   <div>
-     <div className='container'>
-        {data && <CurrentDay data={data.data}/>}
-     </div>
-        {weekForecastData && <Forecast data={weekForecastData.data} />}
-   </div>
-  );
+    <Routes>
+      <Route path='/' element={<Signup />} />
+      <Route path='/weather' element={<Weather />} />
+    </Routes>
+  )
 }
 export default App;

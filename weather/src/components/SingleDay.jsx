@@ -10,7 +10,7 @@ const Day = ({dayProps}) => {
   const handleOpen = () => setOpen(true);
   const [icon, setIcon] = useState();
   
-  useEffect(() => setIcon(getIcon(dayProps[4].weather[0].icon)),[] )
+  useEffect(() => setIcon(getIcon(dayProps[4].weather[0].icon)),[dayProps])
         
   return (
     <div className='day'>
