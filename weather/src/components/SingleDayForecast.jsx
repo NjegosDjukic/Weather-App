@@ -4,13 +4,15 @@ import { Button } from '@mui/material/';
 import { useEffect } from 'react';
 import { getIcon } from '../getIcon';
 
-const Day = ({dayProps}) => {
+const SingleDayForecast = ({dayProps}) => {
 
   const [open,setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const [icon, setIcon] = useState();
   
-  useEffect(() => setIcon(getIcon(dayProps[4].weather[0].icon)),[dayProps])
+  useEffect(() => 
+    setIcon(getIcon(dayProps[4].weather[0].icon))
+  ,[dayProps])
         
   return (
     <div className='day'>
@@ -22,4 +24,4 @@ const Day = ({dayProps}) => {
     </div>
   )
 }
-export default Day;
+export default SingleDayForecast;

@@ -1,5 +1,5 @@
 import { format } from 'date-fns';
-import SingleDay from './SingleDay';
+import SingleDayForecast from './SingleDayForecast';
 
 const Forecast = ({data}) => {
 
@@ -17,7 +17,7 @@ const Forecast = ({data}) => {
   return (
       <div className='days'>
         {weekForecast.map((day,index) => (
-          <SingleDay dayProps={day} key={index}  />
+          <SingleDayForecast dayProps={day} key={index}  />
         ))}
       </div>
   )

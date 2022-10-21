@@ -1,4 +1,4 @@
-export const inputs = [
+export const signUpInputs = [
     {
         id: "1",
         type: 'text',
@@ -22,5 +22,20 @@ export const inputs = [
         type: 'email',
         name: 'email',
         label: 'Email'
+    }
+]
+
+export const signInInputs = [
+    {
+        id: "1",
+        type: 'email',
+        name: 'email',
+        label: 'Email'
+    },
+    {
+        id: "2",
+        type: 'password',
+        name: 'password',
+        label: 'Password'
     }
 ]

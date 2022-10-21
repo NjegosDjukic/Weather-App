@@ -66,10 +66,10 @@ const BasicModal = ({dayProps,open,setOpen}) => {
               <YAxis tickCount={7} tickFormatter={(number) => `${number}°`} />
               <Tooltip content={<CustomTooltip />} />
               <Area type="monotone" dataKey="temperature" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
-            </AreaChart>
+          </AreaChart>
             <span style={{fontSize: '20px'}}>Hourly forecast for {currentDate}</span>
         </Box>
-        </Modal>
+      </Modal>
     </>
   );
 }

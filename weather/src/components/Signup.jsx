@@ -1,35 +1,54 @@
+import { useState } from 'react'
 import { Formik, Form} from 'formik';
-import { inputs } from '../data/inputs';
+import { signUpInputs } from '../data/inputs';
 import { Button, FormLabel } from '@mui/material';
-import {validate}from '../validation/validate';
-import { useNavigate } from 'react-router-dom';
+import { validateSignUp }from '../validation/validate';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 import InputField from './InputField';
 
-const Signup = () => {
+const SignUp = () => {
     const navigate = useNavigate();
-    const handleSubmit = () =>{
-        navigate('/weather')
+    const {signUpWithEmailAndPassword} = useAuth();
+    const [errorMessage, setErrorMessage] = useState();
+
+    const handleSubmit = async(data) =>{
+        try{
+            await signUpWithEmailAndPassword(data)
+            .then(() => {
+                navigate('/signin')
+                setErrorMessage('')
+            })
+        }
+        catch (error) {
+            if(error.code === 'auth/email-already-in-use')
+                setErrorMessage('Email already exists')
+        }
     }
 
     return (
-    <Formik
-        initialValues={{
-            firstName: '',
-            lastName: '',
-            password: '',
-            email: ''
-        }}
-        onSubmit={handleSubmit}
-        validationSchema={validate}
-    >
-        <Form>
-            <FormLabel sx={{fontSize: '24px'}}>Sign up</FormLabel>
-            {inputs.map(input => (
-                <InputField key={input.id} {...input} />
-            ))}
-            <Button variant="contained" type='submit' className='submit-button'>Submit</Button>
-        </Form>
-    </Formik>
+        <Formik
+            initialValues={{
+                firstName: '',
+                lastName: '',
+                password: '',
+                email: ''
+            }}
+            onSubmit={handleSubmit}
+            validationSchema={validateSignUp}
+        >
+            <Form>
+                <FormLabel sx={{fontSize: '24px'}}>Sign up</FormLabel>
+                {signUpInputs.map(input => (
+                    <InputField key={input.id} {...input} />
+                ))}
+                <div style={{width: '80%'}}>
+                    <p className='sign-error-message'>{errorMessage}</p>
+                </div>
+                <Button variant="contained" type='submit' className='submit-button'>Sign up</Button>
+                <span>Already have an account ?<Link to='/signin'>Sign in</Link></span>
+            </Form>
+        </Formik>
   )
 }
-export default Signup;
+export default SignUp;

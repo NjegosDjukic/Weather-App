@@ -7,8 +7,8 @@ const InputField = ({...props}) => {
     return (
         <div className='input-wrap'>
             <TextField {...props} {...field} variant="outlined" />
-            <ErrorMessage component="div" name={field.name} className="error" />
+            <ErrorMessage component="div" name={field.name} style={{color: 'red'}} />
         </div>
-  )
+    )
 }
 export default InputField;
