@@ -5,12 +5,13 @@ import { useAuth } from '../context/AuthContext';
 const ProtectedRoute = ({ children }) => {
   const { user } = useAuth();
   const navigate = useNavigate();
-  
+
+  // eslint-disable-next-line
   useEffect(() => {
     if (!user) {
-        return navigate('/signin');
-     }
-  },[user, navigate])
-    return children;
+      return navigate('/signin');
+    }
+  }, [ user, navigate ]);
+  return children;
 };
 export default ProtectedRoute;
