@@ -30,7 +30,7 @@ const BasicModal = ({ dayProps, isOpen, setIsOpen }) => {
   const data = [];
 
   for (let i = 0; i < dayProps.length; i++) {
-    const date = format(new Date(dayProps[i].dt_txt), 'HH');
+    const date = format(new Date(dayProps[i].dt_txt), 'HH:mm');
     data.push({
       name: date, temperature: dayProps[i].main.temp, pv: 40, amt: 2400
     });
@@ -64,7 +64,12 @@ const BasicModal = ({ dayProps, isOpen, setIsOpen }) => {
           <XAxis dataKey='name' />
           <YAxis tickCount={7} tickFormatter={(number) => `${number}°`} />
           <Tooltip content={<CustomTooltip />} />
-          <Area type='monotone' dataKey='temperature' stroke='#8884d8' fillOpacity={1} fill='url(#colorUv)' />
+          <Area
+            type='monotone'
+            dataKey='temperature'
+            stroke='#8884d8'
+            fillOpacity={1}
+            fill='url(#colorUv)' />
         </AreaChart>
         <span style={{ fontSize: '20px' }}>
           Hourly forecast for
