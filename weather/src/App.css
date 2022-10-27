@@ -1,5 +1,6 @@
 *{
-  font-family: 'Open Sans', sans-serif;;
+  font-family: 'Open Sans', sans-serif;
+  text-decoration: none;
 }
 #root{
   width: 100%;
@@ -21,19 +22,6 @@
   background-color: rgba(255, 255, 255, 0.3);
   position: relative;
 }
-.block1{
-  width: 50%;
-  height: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.block2{
-  width: 50%;
-}
-.icon{
-  width: 250px;
-}
 .header{
   width: 100%;
   display: flex;
@@ -41,15 +29,21 @@
   height: 50%;
   justify-content: center;
 }
+.header-icon-wrap{
+  width: 50%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon{
+  width: 250px;
+}
 .days{
   display: flex;
   width: inherit;
   justify-content: flex-start;
   margin-top: 30px;
-}
-.day-icon{
-  width: 100px;
-  height: 90px;
 }
 .day{
   display: flex;
@@ -62,4 +56,54 @@
   background-color: rgba(255, 255, 255, 0.3);
   flex-grow: 1;
   cursor: pointer;
+}
+.day-icon{
+  width: 100px;
+  height: 90px;
+}
+form{
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  height: 500px;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 20px;
+}
+.input-wrap{
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+input{
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+}
+.submit-button{
+  width: 80% !important;
+  padding: 10px !important;
+  font-size: 16px !important;
+}
+.google-button{
+  width: 80% !important;
+  margin: 10px 0;
+  height: 44.5px !important;
+  text-transform: uppercase;
+  font-size: 16px !important;
+}
+.google-button > div{
+  height: 44.5px !important;
+  margin: 0 !important;
+}
+a{
+  color: #1976d2;
+}
+.sign-error-message{
+  color: red;
+  text-align: left;
+  font-size: 18px;
+  margin: 5px 0;
 }
