@@ -9,11 +9,12 @@ import FourDayForecast from './FourDaysForecast';
 const Weather = () => {
   const { data } = useQuery('currentDayForecast', getCurrentDayWeather);
   const { data: weekForecastData } = useQuery('weekForecast', getWeekForecast);
-  const { logout } = useAuth();
+  const { logout, user } = useAuth();
 
   return (
     <div>
-      <div style={{ width: '100%', textAlign: 'right' }}>
+      <div className='header'>
+        <p className='username'>{user && user.displayName}</p>
         <Button onClick={logout} variant='contained' className='logout-button'>Log out</Button>
       </div>
       <div className='container'>
