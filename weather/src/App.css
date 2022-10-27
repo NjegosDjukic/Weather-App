@@ -107,3 +107,14 @@ a{
   font-size: 18px;
   margin: 5px 0;
 }
+.header{
+  display: flex;
+  width: 100%;
+  justify-content: right;
+  align-items: center;
+}
+.username{
+  color: white;
+  margin-right: 10px;
+  font-size: 20px;
+}

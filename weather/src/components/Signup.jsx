@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { Formik, Form } from 'formik';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button, FormLabel } from '@mui/material';
+import { updateProfile } from 'firebase/auth';
 import { signUpInputs } from '../data/inputs';
 import { validateSignUp } from '../validation/validate';
 import { useAuth } from '../context/AuthContext';
 import InputField from './InputField';
+import { auth } from '../firebase/firebase-config';
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -15,7 +17,8 @@ const SignUp = () => {
   const handleSubmit = async (data) => {
     try {
       await signUpWithEmailAndPassword(data)
-        .then(() => {
+        .then(async () => {
+          await updateProfile(auth.currentUser, { displayName: `${data.firstName} ${data.lastName}` });
           navigate('/weather');
           setErrorMessage('');
         });
