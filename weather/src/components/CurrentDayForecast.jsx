@@ -3,10 +3,13 @@ import { getIcon } from '../getIcon';
 
 const CurrentDay = (data) => {
   const [ icon, setIcon ] = useState('');
+  const { name: cityName, main, weather } = data.data;
+  const { temp: currentTemperature } = main;
+  const { icon: currentIcon, description } = weather[0];
 
   useEffect(() => {
-    setIcon(getIcon(data.data.weather[0].icon));
-  }, [data.data.weather]);
+    setIcon(getIcon(currentIcon));
+  }, [currentIcon]);
 
   return (
     <div className='header'>
@@ -15,13 +18,13 @@ const CurrentDay = (data) => {
       </div>
       <div style={{ width: '50%' }}>
         <span style={{ fontSize: '24px' }}>Today</span>
-        <h1>{data.data.name}</h1>
+        <h1>{cityName}</h1>
         <p style={{ fontSize: '24px' }}>
           Temperature:
-          {data.data.main.temp.toFixed(1)}
+          {currentTemperature.toFixed(1)}
           °C
         </p>
-        <p style={{ fontSize: '24px' }}>{data.data.weather[0].description}</p>
+        <p style={{ fontSize: '24px' }}>{description}</p>
       </div>
     </div>
   );
