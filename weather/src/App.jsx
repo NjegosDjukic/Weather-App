@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Signup from './components/Signup';
+import SignUp from './components/SignUp';
 import Weather from './components/Weather';
 import SignIn from './components/SignIn';
 import AuthContextProvider from './context/AuthContext';
@@ -12,7 +12,7 @@ const App = () => (
   <AuthContextProvider>
     <GlobalStyle />
     <Routes>
-      <Route path='/' element={<Signup />} />
+      <Route path='/' element={<SignUp />} />
       <Route
         path='/weather'
         element={<ProtectedRoute><Weather /></ProtectedRoute>} />
