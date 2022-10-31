@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import { Formik, Form } from 'formik';
+import { Formik } from 'formik';
 import { Link, useNavigate } from 'react-router-dom';
-import { Button, FormLabel } from '@mui/material';
+import { FormLabel } from '@mui/material';
 import { updateProfile } from 'firebase/auth';
 import { signUpInputs } from '../data/inputs';
 import { validateSignUp } from '../validation/validate';
 import { useAuth } from '../context/AuthContext';
 import InputField from './InputField';
 import { auth } from '../firebase/firebase-config';
+import { Form, ErrorMessage, SubmitButton } from './styles/FormStyles';
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -45,12 +46,12 @@ const SignUp = () => {
           <InputField key={input.id} {...input} />
         ))}
         <div style={{ width: '80%' }}>
-          <p className='sign-error-message'>{errorMessage}</p>
+          <ErrorMessage>{errorMessage}</ErrorMessage>
         </div>
-        <Button variant='contained' type='submit' className='submit-button'>Sign up</Button>
+        <SubmitButton type='submit' variant='contained'>Sign up</SubmitButton>
         <span>
           Already have an account ?
-          <Link to='/signin'>Sign in</Link>
+          <Link to='/signin' style={{ color: '#1976d2' }}>Sign in</Link>
         </span>
       </Form>
     </Formik>
