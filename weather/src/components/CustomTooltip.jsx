@@ -3,7 +3,7 @@ import React from 'react';
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
     return (
-      <div className='custom-tooltip'>
+      <div>
         <p>
           {payload[0].value.toFixed(1)}
           °C

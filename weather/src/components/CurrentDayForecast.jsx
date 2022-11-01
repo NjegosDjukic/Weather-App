@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getIcon } from '../getIcon';
+import { Header, StyledText, IconWrap } from './styles/CurrentDayStyles';
 
 const CurrentDay = (data) => {
   const [ icon, setIcon ] = useState('');
@@ -12,21 +13,21 @@ const CurrentDay = (data) => {
   }, [currentIcon]);
 
   return (
-    <div className='header'>
-      <div className='header-icon-wrap'>
-        <img src={icon} alt='' className='icon' />
-      </div>
+    <Header>
+      <IconWrap>
+        <img src={icon} alt='' style={{ width: '250px' }} />
+      </IconWrap>
       <div style={{ width: '50%' }}>
-        <span style={{ fontSize: '24px' }}>Today</span>
+        <StyledText>Today</StyledText>
         <h1>{cityName}</h1>
-        <p style={{ fontSize: '24px' }}>
+        <StyledText>
           Temperature:
           {currentTemperature.toFixed(1)}
           °C
-        </p>
+        </StyledText>
         <p style={{ fontSize: '24px' }}>{description}</p>
       </div>
-    </div>
+    </Header>
   );
 };
 export default CurrentDay;

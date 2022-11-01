@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
-import { Formik, Form } from 'formik';
-import { Button, FormLabel } from '@mui/material';
-import GoogleButton from 'react-google-button';
+import { Formik } from 'formik';
+import { FormLabel } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import { validateSignIn } from '../validation/validate';
 import { signInInputs } from '../data/inputs';
 import { useAuth } from '../context/AuthContext';
 import InputField from './InputField';
+import {
+  Form,
+  ErrorMessage,
+  SubmitButton,
+  GoogleButton
+} from './styles/FormStyles';
 
 const SignIn = () => {
   const { logInWithEmailAndPassword, signInWithGoogle } = useAuth();
@@ -48,13 +53,13 @@ const SignIn = () => {
           <InputField key={input.id} {...input} />
         ))}
         <div style={{ width: '80%' }}>
-          <p className='sign-error-message'>{errorMessage}</p>
+          <ErrorMessage>{errorMessage}</ErrorMessage>
         </div>
-        <Button variant='contained' type='submit' className='submit-button'>Sign in</Button>
-        <GoogleButton className='google-button' onClick={googleLogIn} />
+        <SubmitButton variant='contained' type='submit'>Sign in</SubmitButton>
+        <GoogleButton onClick={googleLogIn} />
         <span>
           You dont have an account ?
-          <Link to='/'>Sign up</Link>
+          <Link to='/' style={{ color: '#1976d2' }}>Sign up</Link>
         </span>
       </Form>
     </Formik>

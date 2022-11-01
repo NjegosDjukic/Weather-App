@@ -5,6 +5,7 @@ import { useAuth } from '../context/AuthContext';
 import { getCurrentDayWeather, getWeekForecast } from '../services/getWeather';
 import CurrentDayForecast from './CurrentDayForecast';
 import FourDayForecast from './FourDaysForecast';
+import { Container, Header, Username } from './styles/WeatherStyles';
 
 const Weather = () => {
   const { data } = useQuery('currentDayForecast', getCurrentDayWeather);
@@ -13,13 +14,13 @@ const Weather = () => {
 
   return (
     <div>
-      <div className='header'>
-        <p className='username'>{user && user.displayName}</p>
+      <Header>
+        <Username>{user && user.displayName}</Username>
         <Button onClick={logout} variant='contained' className='logout-button'>Log out</Button>
-      </div>
-      <div className='container'>
+      </Header>
+      <Container>
         {data && <CurrentDayForecast data={data.data} />}
-      </div>
+      </Container>
       <div>
         {weekForecastData && <FourDayForecast data={weekForecastData.data} />}
       </div>

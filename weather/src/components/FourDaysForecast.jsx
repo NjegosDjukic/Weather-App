@@ -1,8 +1,7 @@
-/* eslint-disable indent */
-/* eslint-disable array-callback-return */
 import React from 'react';
 import { format } from 'date-fns';
 import SingleDayForecast from './SingleDayForecast';
+import { CardsWrap } from './styles/CardStyles';
 
 const Forecast = ({ data }) => {
   const currentDay = format(new Date(), 'EEEE');
@@ -19,12 +18,12 @@ const Forecast = ({ data }) => {
   }
 
   return (
-    <div className='days'>
+    <CardsWrap>
       {weekForecast.map((day, index) => (
         // eslint-disable-next-line
         <SingleDayForecast dayProps={day} key={index} />
       ))}
-    </div>
+    </CardsWrap>
   );
 };
 export default Forecast;
