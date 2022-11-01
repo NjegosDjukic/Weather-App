@@ -18,12 +18,6 @@ export const Input = styled(TextField)`
   padding: 10px;
   border-radius: 10px;
 `;
-export const ErrorMessage = styled.p`
-  color: red;
-  text-align: left;
-  font-size: 18px;
-  margin: 5px 0;
-`;
 export const SubmitButton = styled(Button)`
   width: 80% !important;
   padding: 10px !important;

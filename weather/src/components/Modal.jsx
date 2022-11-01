@@ -6,7 +6,7 @@ import { ModalBox } from './styles/ModalStyles';
 import ModalFooter from './ModalFooter';
 
 const BasicModal = ({ dayProps, isOpen, setIsOpen }) => {
-  const currentDate = format(new Date(dayProps[0].dt_txt), 'dd/MM/yy');
+  const currentDate = format(new Date(dayProps[0].dt_txt), 'dd/MM/yy-EEEE');
   const data = [];
 
   for (let i = 0; i < dayProps.length; i++) {

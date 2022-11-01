@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { Formik } from 'formik';
 import { Link, useNavigate } from 'react-router-dom';
-import { FormLabel } from '@mui/material';
+import { FormLabel, Alert } from '@mui/material';
 import { updateProfile } from 'firebase/auth';
 import { signUpInputs } from '../data/inputs';
 import { validateSignUp } from '../validation/validate';
 import { useAuth } from '../context/AuthContext';
 import InputField from './InputField';
 import { auth } from '../firebase/firebase-config';
-import { Form, ErrorMessage, SubmitButton } from './styles/FormStyles';
+import { Form, SubmitButton } from './styles/FormStyles';
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -45,8 +45,15 @@ const SignUp = () => {
         {signUpInputs.map((input) => (
           <InputField key={input.id} {...input} />
         ))}
-        <div style={{ width: '80%' }}>
-          <ErrorMessage>{errorMessage}</ErrorMessage>
+        <div style={{ width: '80%', marginBottom: '10px' }}>
+          {
+            errorMessage
+            && (
+              <Alert severity='error'>
+                <span style={{ color: 'red', fontSize: '16px' }}>{errorMessage}</span>
+              </Alert>
+            )
+          }
         </div>
         <SubmitButton type='submit' variant='contained'>Sign up</SubmitButton>
         <span>
