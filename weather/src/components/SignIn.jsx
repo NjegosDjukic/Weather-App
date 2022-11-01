@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Formik } from 'formik';
-import { FormLabel } from '@mui/material';
+import { FormLabel, Alert } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import { validateSignIn } from '../validation/validate';
 import { signInInputs } from '../data/inputs';
@@ -8,7 +8,7 @@ import { useAuth } from '../context/AuthContext';
 import InputField from './InputField';
 import {
   Form,
-  ErrorMessage,
+  /* ErrorMessage, */
   SubmitButton,
   GoogleButton
 } from './styles/FormStyles';
@@ -52,8 +52,15 @@ const SignIn = () => {
         {signInInputs.map((input) => (
           <InputField key={input.id} {...input} />
         ))}
-        <div style={{ width: '80%' }}>
-          <ErrorMessage>{errorMessage}</ErrorMessage>
+        <div style={{ width: '80%', marginBottom: '10px' }}>
+          {
+            errorMessage
+            && (
+              <Alert severity='error'>
+                <span style={{ color: 'red', fontSize: '16px' }}>{errorMessage}</span>
+              </Alert>
+            )
+          }
         </div>
         <SubmitButton variant='contained' type='submit'>Sign in</SubmitButton>
         <GoogleButton onClick={googleLogIn} />
