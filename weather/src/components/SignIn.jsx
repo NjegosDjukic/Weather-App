@@ -8,7 +8,6 @@ import { useAuth } from '../context/AuthContext';
 import InputField from './InputField';
 import {
   Form,
-  /* ErrorMessage, */
   SubmitButton,
   GoogleButton
 } from './styles/FormStyles';
