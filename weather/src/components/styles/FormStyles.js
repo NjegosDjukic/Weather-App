@@ -40,3 +40,32 @@ export const GoogleButton = styled(Btn)`
     margin: 0 !important;
   }
 `;
+export const SearchWrap = styled(FormStyles)`
+  height: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 350px;
+`;
+export const Search = styled.div`
+  background-color: white;
+  border-radius: 10px;
+  width: 70%;
+  height: 75%;
+  justify-content:right;
+  display:flex;
+  align-items: center;
+  input:focus{
+    outline: none;
+    background: none;
+  }
+  input:-webkit-autofill:focus,input:-webkit-autofill:not(focus){
+    transition: background-color 5000s ease-in-out 0s;
+  }
+`;
+export const InputSearch = styled.input`
+  border-radius: 10px;
+  width: 90%;
+  height: 100%;
+  border: none;
+`;
