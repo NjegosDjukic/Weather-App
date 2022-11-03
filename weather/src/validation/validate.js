@@ -44,3 +44,10 @@ export const validateSignIn = Yup.object().shape({
     .minSymbols(1, 'Password must contain at least 1 special character')
     .required('This field is required')
 });
+
+export const validateCityName = Yup.object().shape({
+  cityName: Yup.string()
+    .required()
+    .matches(/^([^0-9]*)$/, 'Numbers are not allowed')
+    .matches(/^[aA-zZ\s]+$/, 'Special characters are not allowed')
+});

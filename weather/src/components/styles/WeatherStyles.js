@@ -1,9 +1,11 @@
 import styled from 'styled-components';
+import { Typography } from '@mui/material';
 
-export const Header = styled.div`
+export const HeaderWrap = styled.div`
   display: flex;
   width: 100%;
-  justify-content: right;
+  height: 70px;
+  justify-content: space-between;
   align-items: center;
 `;
 export const Container = styled.div`
@@ -22,4 +24,12 @@ export const Username = styled.p`
   color: white;
   margin-right: 10px;
   font-size: 20px;
+`;
+export const User = styled.div`
+  display: flex;
+  height: 70%;
+  align-items: center;
+`;
+export const ErrorMessage = styled(Typography)`
+  font-size: 32px !important;
 `;
