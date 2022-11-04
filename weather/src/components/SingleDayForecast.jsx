@@ -10,15 +10,15 @@ const SingleDayForecast = ({ dayProps }) => {
   const handleOpen = () => setIsOpen(true);
 
   useEffect(() => {
-    setIcon(getIcon(dayProps[4].weather[0].icon));
+    setIcon(getIcon(dayProps && dayProps[4]?.weather[0]?.icon));
   }, [dayProps]);
 
   return (
     <Card>
-      <p style={{ fontSize: '24px' }}>{dayProps[4].dt}</p>
+      <p style={{ fontSize: '24px' }}>{dayProps && dayProps[4]?.dt}</p>
       <img src={icon} alt='icon' style={{ width: '100px', height: '90px' }} />
       <p>
-        {dayProps[4].main.temp.toFixed(1)}
+        {dayProps && dayProps[4]?.main?.temp?.toFixed(1)}
         °C
       </p>
       <Button onClick={handleOpen} style={{ color: 'black' }}>Show hourly forecast</Button>

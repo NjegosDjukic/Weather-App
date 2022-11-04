@@ -7,7 +7,7 @@ const SearchField = ({ ...props }) => {
   const [field] = useField(props);
   return (
     <Search>
-      <AiOutlineSearch style={{ fontSize: '16px', color: 'red' }} />
+      <AiOutlineSearch style={{ fontSize: '16px', color: 'gray' }} />
       <InputSearch type='search' {...props} {...field} />
     </Search>
   );
