@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React from 'react';
 import { Formik } from 'formik';
 import { Button } from '@mui/material';
